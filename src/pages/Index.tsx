@@ -189,7 +189,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="container mx-auto px-6 py-8 border-t border-border/20">
         <div className="text-center text-muted-foreground">
-          <p>&copy; 2024 Basic Tech. All rights reserved.</p>
+          <p>&copy; 2025 Basic Tech. All rights reserved.</p>
         </div>
       </footer>
     </div>

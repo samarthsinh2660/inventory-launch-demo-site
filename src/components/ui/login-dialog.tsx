@@ -4,7 +4,7 @@ import { Button } from "./button";
 import { Input } from "./input";
 import { Label } from "./label";
 import { useToast } from "@/hooks/use-toast";
-import { AlertCircle, Download } from "lucide-react";
+import { AlertCircle, Download, Eye, EyeOff } from "lucide-react";
 import { Alert, AlertDescription } from "./alert";
 
 interface LoginDialogProps {
@@ -12,7 +12,7 @@ interface LoginDialogProps {
 }
 
 // API Configuration - easily changeable
-const API_ENDPOINT = "https://your-api-endpoint.com/api/factory/register";
+const API_ENDPOINT = "http://localhost:3000/api/factory/register";
 
 interface FactoryRegistrationData {
   factory_name: string;
@@ -28,6 +28,7 @@ export function LoginDialog({ children }: LoginDialogProps) {
   const [open, setOpen] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [registrationResponse, setRegistrationResponse] = useState<any>(null);
+  const [showPassword, setShowPassword] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -136,13 +137,28 @@ export function LoginDialog({ children }: LoginDialogProps) {
             </div>
             <div className="space-y-2">
               <Label htmlFor="admin_password">Admin Password</Label>
-              <Input 
-                id="admin_password"
-                name="admin_password"
-                type="password" 
-                placeholder="Create a strong password"
-                required 
-              />
+              <div className="relative">
+                <Input 
+                  id="admin_password"
+                  name="admin_password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Create a strong password"
+                  required 
+                  className="pr-10"
+                />
+                <button
+                  type="button"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  onClick={() => setShowPassword((v) => !v)}
+                  className="absolute inset-y-0 right-2 flex items-center text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {showPassword ? (
+                    <EyeOff className="h-4 w-4" />
+                  ) : (
+                    <Eye className="h-4 w-4" />
+                  )}
+                </button>
+              </div>
             </div>
             <div className="space-y-2">
               <Label htmlFor="admin_name">Admin Full Name</Label>

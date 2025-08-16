@@ -25,7 +25,7 @@ export function FeatureCard({
 }: FeatureCardProps) {
   return (
     <Card className={cn(
-      "p-6 border transition-all duration-300 hover:shadow-[var(--shadow-glow)] hover:scale-105",
+      "p-6 border transition-all duration-300 hover:shadow-[var(--shadow-glow)] hover:scale-105 h-full flex flex-col",
       variantStyles[variant],
       className
     )}>

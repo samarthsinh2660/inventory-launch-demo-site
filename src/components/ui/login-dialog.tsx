@@ -11,8 +11,9 @@ interface LoginDialogProps {
   children: React.ReactNode;
 }
 
-// API Configuration - easily changeable
-const API_ENDPOINT = "http://localhost:3000/api/factory/register";
+// API Configuration via environment variable (Vite: VITE_*)
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL as string | undefined;
+const API_ENDPOINT = BACKEND_URL ? `${BACKEND_URL}/register` : undefined;
 
 interface FactoryRegistrationData {
   factory_name: string;
@@ -34,6 +35,16 @@ export function LoginDialog({ children }: LoginDialogProps) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+    
+    if (!API_ENDPOINT) {
+      toast({
+        title: "Missing configuration",
+        description: "VITE_BACKEND_URL is not set. Please configure it in your environment.",
+        variant: "destructive",
+      });
+      setIsLoading(false);
+      return;
+    }
     
     const formData = new FormData(e.currentTarget);
     const registrationData: FactoryRegistrationData = {
@@ -60,14 +71,9 @@ export function LoginDialog({ children }: LoginDialogProps) {
         setRegistrationResponse(data);
         setShowInstructions(true);
         
-        // Trigger app download
-        if (data.download_info?.app_download_url) {
-          window.open(data.download_info.app_download_url, "_blank");
-        }
-        
         toast({
           title: "Factory Registered Successfully!",
-          description: "Your app is downloading. Check the instructions below for login details.",
+          description: "Read the guide below. When ready, click the download button to open the link.",
           duration: 5000,
         });
       } else {
@@ -99,7 +105,7 @@ export function LoginDialog({ children }: LoginDialogProps) {
         <DialogHeader>
           <DialogTitle>Register Your Factory</DialogTitle>
           <DialogDescription>
-            Set up your Basic Tech Inventory Management System
+            Set up your go-to ims by Basic Tech
           </DialogDescription>
         </DialogHeader>
         
@@ -185,7 +191,7 @@ export function LoginDialog({ children }: LoginDialogProps) {
               className="w-full" 
               disabled={isLoading}
             >
-              {isLoading ? "Registering Factory..." : "Register & Download App"}
+              {isLoading ? "Registering Factory..." : "Register"}
             </Button>
           </form>
         ) : (
@@ -193,7 +199,7 @@ export function LoginDialog({ children }: LoginDialogProps) {
             <Alert>
               <AlertCircle className="h-4 w-4" />
               <AlertDescription>
-                Factory registered successfully! Your app is downloading.
+                Factory registered successfully! Please review the guide below. When you're ready, open the download link.
               </AlertDescription>
             </Alert>
 
@@ -223,7 +229,7 @@ export function LoginDialog({ children }: LoginDialogProps) {
                 variant="outline"
               >
                 <Download className="w-4 h-4 mr-2" />
-                Download App Again
+                Open Download Link
               </Button>
 
               <Button 

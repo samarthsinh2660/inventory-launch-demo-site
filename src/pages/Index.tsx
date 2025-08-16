@@ -12,7 +12,7 @@ import {
   Clock,
   CheckCircle 
 } from "lucide-react";
-import heroImage from "@/assets/hero-dashboard.jpg";
+import heroImage from "@/assets/MacBook Pro 14_ - 1.png";
 
 const Index = () => {
   const features = [
@@ -45,121 +45,122 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-[var(--gradient-hero)]">
       {/* Navigation */}
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-4 sm:px-6 py-4 animate-fade-in">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <Database className="w-8 h-8 text-primary" />
-            <span className="text-xl font-bold text-foreground">Basic Tech</span>
+          <div className="flex items-center space-x-3 hover:scale-105 transition-transform duration-300">
+            <Database className="w-6 h-6 sm:w-8 sm:h-8 text-primary animate-pulse" />
+            <span className="text-lg sm:text-xl font-bold text-foreground">Basic Tech</span>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
+      <section className="container mx-auto px-4 sm:px-6 py-8">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="space-y-6 sm:space-y-8 animate-slide-in-left">
             <div className="space-y-4">
-              <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+              <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 animate-bounce-subtle inline-block">
                 Free Trial Available
               </Badge>
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight animate-fade-in-up">
                 Advanced
-                <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent animate-gradient">
                   {" "}Inventory{" "}
                 </span>
                 Management
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed animate-fade-in-up animation-delay-200">
                 Enterprise-grade inventory management system with real-time alerts, 
                 robust validation, and manufacturing support. Built for modern businesses.
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-400">
               <LoginDialog>
-                <Button size="lg" className="bg-primary hover:bg-primary-glow shadow-[var(--shadow-glow)]">
+                <Button size="lg" className="bg-primary hover:bg-primary-glow shadow-[var(--shadow-glow)] hover:scale-105 transition-all duration-300 hover:shadow-xl">
                   Start Free Trial
                 </Button>
               </LoginDialog>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300">
                 View Demo
               </Button>
             </div>
 
-            <div className="flex items-center gap-6 text-sm text-muted-foreground">
-              <div className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-primary" />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-sm text-muted-foreground animate-fade-in-up animation-delay-600">
+              <div className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
+                <CheckCircle className="w-4 h-4 text-primary animate-pulse" />
                 <span>No Credit Card Required</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-primary" />
+              <div className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
+                <Clock className="w-4 h-4 text-primary animate-pulse animation-delay-100" />
                 <span>Setup in 5 minutes</span>
               </div>
             </div>
           </div>
           
-          <div className="relative">
-            <div className="relative z-10">
+          <div className="relative animate-slide-in-right">
+            <div className="relative z-10 hover:scale-105 transition-transform duration-500">
               <img 
                 src={heroImage} 
                 alt="Inventory Management Dashboard" 
-                className="rounded-lg shadow-2xl w-full"
+                className="rounded-lg shadow-2xl w-full animate-float"
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-lg"></div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-lg animate-pulse-glow"></div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="container mx-auto px-6 py-20">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl lg:text-4xl font-bold">
+      <section className="container mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <div className="text-center space-y-4 mb-12 sm:mb-16 animate-fade-in-up">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold">
             Powerful Features for Modern Inventory Management
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Our system provides enterprise-level functionality with clean architecture 
             and robust error handling for reliable operations.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
           {features.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-              variant={feature.variant}
-            />
+            <div key={index} className="animate-fade-in-up hover:scale-105 transition-transform duration-300 h-full" style={{animationDelay: `${index * 200}ms`}}>
+              <FeatureCard
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                variant={feature.variant}
+              />
+            </div>
           ))}
         </div>
       </section>
 
       {/* Additional Features */}
-      <section className="container mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="space-y-4">
-            <TrendingUp className="w-12 h-12 text-primary" />
-            <h3 className="text-xl font-semibold">Clear Error Handling</h3>
+      <section className="container mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="space-y-4 p-6 rounded-lg hover:bg-card/50 transition-all duration-300 animate-fade-in-up hover:scale-105 group">
+            <TrendingUp className="w-12 h-12 text-primary group-hover:scale-110 transition-transform duration-300 animate-pulse" />
+            <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">Clear Error Handling</h3>
             <p className="text-muted-foreground">
               Uses RequestError with specific error codes. Errors are propagated cleanly 
               to the frontend—no masking by generic messages.
             </p>
           </div>
           
-          <div className="space-y-4">
-            <Database className="w-12 h-12 text-primary" />
-            <h3 className="text-xl font-semibold">Data Integrity</h3>
+          <div className="space-y-4 p-6 rounded-lg hover:bg-card/50 transition-all duration-300 animate-fade-in-up animation-delay-200 hover:scale-105 group">
+            <Database className="w-12 h-12 text-primary group-hover:scale-110 transition-transform duration-300 animate-pulse animation-delay-100" />
+            <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">Data Integrity</h3>
             <p className="text-muted-foreground">
               MySQL-backed schema, controlled updates, and clear audit trails for 
               inventory operations with dashboard visibility.
             </p>
           </div>
           
-          <div className="space-y-4">
-            <Shield className="w-12 h-12 text-primary" />
-            <h3 className="text-xl font-semibold">Clean Architecture</h3>
+          <div className="space-y-4 p-6 rounded-lg hover:bg-card/50 transition-all duration-300 animate-fade-in-up animation-delay-400 hover:scale-105 group md:col-span-2 lg:col-span-1">
+            <Shield className="w-12 h-12 text-primary group-hover:scale-110 transition-transform duration-300 animate-pulse animation-delay-200" />
+            <h3 className="text-xl font-semibold group-hover:text-primary transition-colors duration-300">Clean Architecture</h3>
             <p className="text-muted-foreground">
               Separation of concerns with controllers, services, and repositories. 
               Improves performance and testability.
@@ -169,26 +170,28 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="container mx-auto px-6 py-20">
-        <div className="text-center space-y-8 bg-card/50 backdrop-blur-sm rounded-2xl p-12 border">
-          <h2 className="text-3xl lg:text-4xl font-bold">
+      <section className="container mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <div className="text-center space-y-6 sm:space-y-8 bg-card/50 backdrop-blur-sm rounded-2xl p-8 sm:p-12 border animate-fade-in-up hover:scale-105 transition-all duration-500 hover:shadow-2xl">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold animate-fade-in-up">
             Ready to Transform Your Inventory Management?
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Join thousands of businesses using Basic Tech to streamline their inventory operations.
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto animate-fade-in-up animation-delay-200">
+            Join thousands of businesses using go-to ims by Basic Tech to streamline their inventory operations.
             Start your free trial today and experience the difference.
           </p>
-          <LoginDialog>
-            <Button size="lg" className="bg-primary hover:bg-primary-glow shadow-[var(--shadow-glow)] text-lg px-8">
-              Get Started - Free Trial
-            </Button>
-          </LoginDialog>
+          <div className="animate-fade-in-up animation-delay-400">
+            <LoginDialog>
+              <Button size="lg" className="bg-primary hover:bg-primary-glow shadow-[var(--shadow-glow)] text-lg px-8 hover:scale-110 transition-all duration-300 hover:shadow-xl animate-pulse-glow">
+                Get Started - Free Trial
+              </Button>
+            </LoginDialog>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="container mx-auto px-6 py-8 border-t border-border/20">
-        <div className="text-center text-muted-foreground">
+      <footer className="container mx-auto px-4 sm:px-6 py-8 border-t border-border/20 animate-fade-in">
+        <div className="text-center text-muted-foreground hover:text-foreground transition-colors duration-300">
           <p>&copy; 2025 Basic Tech. All rights reserved.</p>
         </div>
       </footer>

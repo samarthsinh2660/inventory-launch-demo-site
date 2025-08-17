@@ -11,9 +11,8 @@ interface LoginDialogProps {
   children: React.ReactNode;
 }
 
-// API Configuration via environment variable (Vite: VITE_*)
-const BACKEND_URL = import.meta.env.VITE_BACKEND_URL as string | undefined;
-const API_ENDPOINT = BACKEND_URL ? `${BACKEND_URL}/register` : undefined;
+const API_ENDPOINT = "/api/register";
+
 
 interface FactoryRegistrationData {
   factory_name: string;

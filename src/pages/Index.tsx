@@ -81,9 +81,11 @@ const Index = () => {
                   Start Free Trial
                 </Button>
               </LoginDialog>
-              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300">
-                View Demo
-              </Button>
+              <a href="https://www.youtube.com/watch?v=PkIeNShIwUA&list=PLrV1FdUBxnSZ-mFvam0nXn-sfne7-dfck" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300">
+                  View Demo
+                </Button>
+              </a>
             </div>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-sm text-muted-foreground animate-fade-in-up animation-delay-600">
